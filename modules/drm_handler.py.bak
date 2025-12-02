@@ -296,7 +296,7 @@ async def drm_handler(bot: Client, m: Message):
             if any(x in url for x in ["https://cpvod.testbook.com/", "classplusapp.com/drm/", "media-cdn.classplusapp.com", "media-cdn-alisg.classplusapp.com", "media-cdn-a.classplusapp.com", "tencdn.classplusapp", "videos.classplusapp", "webvideos.classplusapp.com"]):
                 # normalize cpvod -> media-cdn path used by API
                 url_norm = url.replace("https://cpvod.testbook.com/", "https://media-cdn.classplusapp.com/drm/")
-                api_url_call = f"https://new-cp-api-dec-1.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id={user_id}","owner":"@ITSGOLU_CHAT"}"
+                api_url_call = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id={user_id}"
                 keys_string = ""
                 mpd = None
                 try:
@@ -364,7 +364,7 @@ async def drm_handler(bot: Client, m: Message):
                 # call unified API as well
                 try:
                     url_norm = url
-                    api_url_call = f"https://new-cp-api-dec-1.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id={user_id}","owner":"@ITSGOLU_CHAT"}"
+                    api_url_call = f"https://itsgolu-cp-api.vercel.app/itsgolu?url={url}@ITSGOLU_OFFICIAL&user_id={user_id}"
                     resp = requests.get(api_url_call, timeout=30)
                     data = resp.json()
                     if isinstance(data, dict) and "url" in data:
